@@ -1,43 +1,35 @@
 package com.proconsul.servlet;
 
 import java.io.IOException;
-import java.sql.Connection;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.proconsul.connection.ConnectionManager;
-import com.proconsul.dao.UtenteHRDAO;
-import com.proconsul.dao.UtenteHRDAOImpl;
-import com.proconsul.dto.UtenteHRDTO;
-import com.proconsul.sql.SqlScript;
-
+import com.proconsul.ejb.UtenteHRLoginEJBLocal;
 
 @WebServlet("/loginHr")
 public class LoginHRServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@EJB
+	private UtenteHRLoginEJBLocal utenteHRLogin;
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		Connection con = ConnectionManager.getConnection();
+
+		HttpSession session = request.getSession();
 
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
-		UtenteHRDAO utenteHRDAO = new UtenteHRDAOImpl();
-		UtenteHRDTO utenteHr = utenteHRDAO.findUtenteHRByEmailAndPassword(con, SqlScript.sqlFindByEmailAndPassword, email, password);
+		String page = utenteHRLogin.findUtenteHRByEmailAndPassword(email, password, session);
 
-		if (utenteHr != null) {
-			if (!utenteHr.isUtente()) {
-				response.sendRedirect("adminPage.jsp"); // Vai alla pagina admin
-			} else {
-				response.sendRedirect("searchPage.jsp"); // Vai alla pagina di ricerca
+		response.sendRedirect(page);
 
-			}
-		}
 	}
 }

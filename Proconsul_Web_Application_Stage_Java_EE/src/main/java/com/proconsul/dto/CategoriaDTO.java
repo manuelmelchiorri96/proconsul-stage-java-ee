@@ -8,7 +8,7 @@ public class CategoriaDTO implements Serializable {
 	
 	private String nome;
 
-	
+	//nsvak
 	public String getNome() {
 		return nome;
 	}

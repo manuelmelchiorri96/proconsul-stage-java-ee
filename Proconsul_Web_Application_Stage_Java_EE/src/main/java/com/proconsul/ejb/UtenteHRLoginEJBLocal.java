@@ -1,7 +1,7 @@
 package com.proconsul.ejb;
 
-import jakarta.ejb.Local;
-import jakarta.servlet.http.HttpSession;
+import javax.ejb.Local;
+import javax.servlet.http.HttpSession;
 
 @Local
 public interface UtenteHRLoginEJBLocal {

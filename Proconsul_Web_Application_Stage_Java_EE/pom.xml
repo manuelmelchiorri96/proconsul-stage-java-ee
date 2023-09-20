@@ -11,18 +11,6 @@
         <maven.compiler.source>17</maven.compiler.source>
     </properties>
     <dependencies>
-		<dependency>
-    <groupId>jakarta.servlet</groupId>
-    <artifactId>jakarta.servlet-api</artifactId>
-    <version>6.0.0</version>
-    <scope>provided</scope>
-</dependency>
-<dependency>
-    <groupId>jakarta.ejb</groupId>
-    <artifactId>jakarta.ejb-api</artifactId>
-    <version>4.0.1</version>
-</dependency>
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

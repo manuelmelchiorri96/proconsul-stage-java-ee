@@ -2,8 +2,8 @@ package com.proconsul.ejb;
 
 import java.sql.Connection;
 
-import jakarta.ejb.Stateless;
-import jakarta.servlet.http.HttpSession;
+import javax.ejb.Stateless;
+import javax.servlet.http.HttpSession;
 
 import com.proconsul.connection.ConnectionManager;
 import com.proconsul.dao.UtenteHRDAO;

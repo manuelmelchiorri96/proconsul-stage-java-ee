@@ -1,21 +1,21 @@
 package com.proconsul.servlet;
 
 import java.io.IOException;
-
-import jakarta.ejb.EJB;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.proconsul.ejb.UtenteHRLoginEJBLocal;
+
+import javax.ejb.EJB;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/login")
 public class LoginHRServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	@EJB
 	private UtenteHRLoginEJBLocal utenteHRLogin;
 
@@ -32,4 +32,5 @@ public class LoginHRServlet extends HttpServlet {
 		response.sendRedirect(page);
 
 	}
+
 }

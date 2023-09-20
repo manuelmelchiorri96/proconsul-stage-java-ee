@@ -9,7 +9,6 @@ import java.sql.Statement;
 
 public class ConnectionManager implements ConnectionParameters {
 
-	
 	public static Connection getConnection() {
 
 		Connection con = null;
@@ -26,14 +25,15 @@ public class ConnectionManager implements ConnectionParameters {
 		return con;
 	}
 
-	
 	public static PreparedStatement getPreparedStatment(Connection con, String sql) {
 
 		PreparedStatement ps = null;
 
 		try {
 
-			ps = con.prepareStatement(sql);
+			if (con != null) {
+				ps = con.prepareStatement(sql);
+			}
 
 		} catch (SQLException e) {
 
@@ -43,7 +43,6 @@ public class ConnectionManager implements ConnectionParameters {
 		return ps;
 	}
 
-	
 	public static ResultSet getResultSet(Connection con, String sql) {
 
 		Statement stmt = null;
@@ -63,7 +62,6 @@ public class ConnectionManager implements ConnectionParameters {
 		return rs;
 	}
 
-	
 	public static void closeConnection(Connection con) {
 
 		try {

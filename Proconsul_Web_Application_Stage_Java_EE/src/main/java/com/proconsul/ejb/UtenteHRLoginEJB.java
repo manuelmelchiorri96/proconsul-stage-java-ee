@@ -15,7 +15,7 @@ import com.proconsul.sql.SqlScript;
 public class UtenteHRLoginEJB implements UtenteHRLoginEJBLocal {
 
 	@Override
-	public String findUtenteHRByEmailAndPassword(String email, String password, HttpSession session) {
+	public String loginUtenteHR(String email, String password, HttpSession session) {
 
 		String page = "error.html";
 

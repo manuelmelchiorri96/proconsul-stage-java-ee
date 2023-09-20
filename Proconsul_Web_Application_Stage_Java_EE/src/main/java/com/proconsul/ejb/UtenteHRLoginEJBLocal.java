@@ -6,5 +6,5 @@ import jakarta.servlet.http.HttpSession;
 @Local
 public interface UtenteHRLoginEJBLocal {
 
-	public String findUtenteHRByEmailAndPassword(String email,String password, HttpSession session);
+	public String loginUtenteHR(String email,String password, HttpSession session);
 }

@@ -27,7 +27,7 @@ public class LoginHRServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
-		String page = utenteHRLogin.findUtenteHRByEmailAndPassword(email, password, session);
+		String page = utenteHRLogin.loginUtenteHR(email, password, session);
 
 		response.sendRedirect(page);
 

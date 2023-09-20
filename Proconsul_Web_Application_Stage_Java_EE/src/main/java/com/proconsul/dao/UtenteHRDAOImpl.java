@@ -27,7 +27,7 @@ public class UtenteHRDAOImpl implements UtenteHRDAO{
 
 			while (rs.next()) {
 
-				System.out.println(rs.getString("login"));
+				System.out.println(rs.getString("email"));
 			}
 
 		} catch (SQLException e) {

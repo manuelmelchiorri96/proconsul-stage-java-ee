@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpSession;
 
 import com.proconsul.ejb.UtenteHRLoginEJBLocal;
 
-@WebServlet("/loginHr")
+@WebServlet("/login")
 public class LoginHRServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

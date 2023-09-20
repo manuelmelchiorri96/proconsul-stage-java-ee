@@ -7,7 +7,7 @@
 <title>Login UtenteHR</title>
 </head>
 <body>
-<form name="loginHr" method="post">
+<form name="login" method="post" action="login">
 <label for="email"> Email </label><input type="email" name="email"/><br><br>
 <label for="passwpwrd"> Password </label><input type="password" name="password"/><br><br>
 <input type="submit" name="Login" value="Login"/>

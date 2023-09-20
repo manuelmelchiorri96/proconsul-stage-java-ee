@@ -30,16 +30,10 @@ public class UtenteHRLoginEJB implements UtenteHRLoginEJBLocal {
 
 			if (!utenteHr.isUtente()) {
 				session.setAttribute("UtenteHR", utenteHr);
-				page = "admin.html";
+				page = "prova.jsp";
 
-			} else {
-				page = "ricerca.html";
-//DA MODIFICARE URL
 			}
-			
 		}
-
 		return page;
 	}
-
 }

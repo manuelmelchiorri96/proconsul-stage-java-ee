@@ -20,11 +20,14 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 		
 		
 		try {
+			
 			ps.setString(1, categoriaDTO.getNome());
 			righeInserite = ps.executeUpdate();
 		}
-		catch(SQLException e) {
+		catch(SQLException | NullPointerException e) {
+			
 			e.printStackTrace();
+			righeInserite = 0;
 		}
 		
 		return righeInserite;

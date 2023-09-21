@@ -39,7 +39,6 @@ public class CategoriaEJB implements CategoriaEJBLocal {
 			session.setAttribute("categoriaDTO", categoriaDTO);
 			pagina = "inserimentoRiuscito.jsp";
 		}
-
 		
 		return pagina;
 	}

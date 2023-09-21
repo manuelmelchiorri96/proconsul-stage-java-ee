@@ -7,7 +7,7 @@
 <%@page import="com.proconsul.dto.CategoriaDTO"%>
 <%
 CategoriaDTO categoriaDTO = (CategoriaDTO) session.getAttribute("categoriaDTO");
-String messaggio = "Categoria " + categoriaDTO.getNome() + " non inserita";
+String messaggio = "Categoria non inserita";
 %>
 <style>
 body {

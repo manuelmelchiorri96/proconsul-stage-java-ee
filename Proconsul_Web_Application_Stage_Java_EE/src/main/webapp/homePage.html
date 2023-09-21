@@ -3,10 +3,45 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>HomePage</title>
+<style>
+body{
+    background:#f0ece2;
+    padding:75px;
+    text-align:center;
+    font-family: 'Oswald', sans-serif;
+  }
+  
+  h1{
+    color:#5587a5;
+    font-weight:100;
+  }
+  
+  .btn{
+    color:#5587a5;
+    background:#dfd3c3;
+    padding:10px 20px;
+    font-size:12px;
+    text-decoration:none;
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  
+  .btn:hover{
+    border:none;
+    background:rgba(0, 0, 0, 0.4);
+    background:#fff;
+    padding:20px 20px; 
+    color:#1b1b1b;
+  }
+  </style>
 </head>
 <body>
-<!-- Nel primo caso Tomcat rileva il .html e cerca il file mentre nel secondo caso ricerca una Servlet che abbia quello stesso URL PATTERN -->
 
-<a href="loginUtenteHR.html">Login</a>	<!-- Per HTML con HREF facciamo una richiesta di tipo GET -->
+    <h1>Skill Inventory</h1>
+    
+    <a href="dipendenteHome.html" class="btn">Dipendente</a>
+    <a href="loginUtenteHR.html" class="btn">HR</a>
+    
+   
 </body>
 </html>

@@ -14,7 +14,7 @@ public class UtenteHRDAOImpl implements UtenteHRDAO {
 	public UtenteHRDTO findUtenteHRByEmailAndPassword(Connection con, String sql, String email, String password) {
 
 		ResultSet rs = null;
-		PreparedStatement ps = ConnectionManager.getPreparedStatment(con, sql);
+		PreparedStatement ps = ConnectionManager.getPreparedStatement(con, sql);
 
 		UtenteHRDTO utenteHR = null;
 

@@ -3,11 +3,44 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login UtenteHR</title>
+  	<style>
+body{
+    background:#f0ece2;
+    padding:75px;
+    text-align:center;
+    font-family: 'Oswald', sans-serif;
+  }
+  
+  h1{
+    color:#5587a5;
+    font-weight:100;
+  }
+  
+  .btn{
+    color:#5587a5;
+    background:#dfd3c3;
+    padding:10px 20px;
+    font-size:12px;
+    text-decoration:none;
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  
+  .btn:hover{
+    border:none;
+    background:rgba(0, 0, 0, 0.4);
+    background:#fff;
+    padding:20px 20px; 
+    color:#1b1b1b;
+  }
+  </style>
 </head>
 <body>
+<h1>Login</h1>
+
 <form name="loginHr" method="post" action="login">
-<label for="email"> Email </label><input type="email" name="email"/><br><br>
-<label for="passwpwrd"> Password </label><input type="password" name="password"/><br><br>
+<label for="email"> Email </label><input type="email" name="email" required><br><br>
+<label for="password"> Password </label><input type="password" name="password" required><br><br>
 <input type="submit" name="Login" value="Login"/>
 </form>
 </body>

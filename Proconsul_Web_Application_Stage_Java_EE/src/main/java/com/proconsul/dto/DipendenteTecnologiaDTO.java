@@ -5,21 +5,22 @@ import java.io.Serializable;
 public class DipendenteTecnologiaDTO implements Serializable {
 
 	private static final long serialVersionUID = -8031649890021500345L;
-	private int dipendenteId;
-	private int tecnologiaId;
+	
+	private String dipendenteId;
+	private String tecnologiaId;
 	private String esperienza;
 	private String competenza;
 	
-	public int getDipendenteId() {
+	public String getDipendenteId() {
 		return dipendenteId;
 	}
-	public void setDipendenteId(int dipendenteId) {
+	public void setDipendenteId(String dipendenteId) {
 		this.dipendenteId = dipendenteId;
 	}
-	public int getTecnologiaId() {
+	public String getTecnologiaId() {
 		return tecnologiaId;
 	}
-	public void setTecnologiaId(int tecnologiaId) {
+	public void setTecnologiaId(String tecnologiaId) {
 		this.tecnologiaId = tecnologiaId;
 	}
 	public String getEsperienza() {
@@ -39,7 +40,7 @@ public class DipendenteTecnologiaDTO implements Serializable {
 	public DipendenteTecnologiaDTO() {
 	}
 	
-	public DipendenteTecnologiaDTO(int dipendenteId, int tecnologiaId, String esperienza,
+	public DipendenteTecnologiaDTO(String dipendenteId, String tecnologiaId, String esperienza,
 			String competenza) {
 		this.dipendenteId = dipendenteId;
 		this.tecnologiaId = tecnologiaId;

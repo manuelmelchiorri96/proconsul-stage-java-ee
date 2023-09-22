@@ -33,10 +33,12 @@ public class CategoriaEJB implements CategoriaEJBLocal {
 		
 		ConnectionManager.closeConnection(con);
 
+		session.setAttribute("categoriaDTO", categoriaDTO);
+		
+		
 		
 		if (righeInserite > 0) {
 			
-			session.setAttribute("categoriaDTO", categoriaDTO);
 			pagina = "inserimentoRiuscito.jsp";
 		}
 		

@@ -8,9 +8,7 @@ public class TecnologiaDTO implements Serializable {
 	private static final long serialVersionUID = -4348721175346719613L;
 
 	private String nome;
-	
 	private String nomeCategoria;
-	
 	
 	public String getNome() {
 		return nome;

@@ -17,9 +17,7 @@ public class DipendenteDTO implements Serializable {
 	private String cittaResidenza;
 	private String cap;
 	private String numeroTelefonico;
-	
-	
-	
+		
 	public String getCodiceFiscale() {
 		return codiceFiscale;
 	}

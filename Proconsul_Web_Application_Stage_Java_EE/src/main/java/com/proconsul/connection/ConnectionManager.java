@@ -16,9 +16,10 @@ public class ConnectionManager implements ConnectionParameters {
 
 		try {
 
+			Class.forName(dbDriver);
 			con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
 
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 
 			e.printStackTrace();
 

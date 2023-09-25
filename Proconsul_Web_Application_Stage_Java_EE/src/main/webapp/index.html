@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+    /* Stile per nascondere i checkbox per default */
+    .hidden {
+        display: none;
+    }
+
+    /* Stile per gli elementi dell'indice con spazio tra le lettere */
+    #indice .letter-link {
+        margin-right: 10px; /* Aggiungi il margine tra le lettere */
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+    // Inizializza l'elenco delle lettere visualizzate
+    updateLettereVisualizzate();
+
+    // Gestisci il clic su una lettera dell'alfabeto
+    $(document).on('click', '.letter-link', function() {
+        var letteraSelezionata = $(this).data('letter');
+
+        // Nascondi tutti i checkbox (eccetto "Seleziona Tutto") e i relativi nomi
+        $('input[type="checkbox"]').not('#selezionaTutto').hide();
+        $('label').hide();
+
+        // Mostra solo i checkbox e i nomi che iniziano con la lettera selezionata
+        $('[id^="' + letteraSelezionata + '"]').show();
+        $('label[for^="' + letteraSelezionata + '"]').show();
+    });
+
+    // Gestisci il clic sul link "Mostra tutto"
+    $('#mostraTutto').on('click', function() {
+        // Mostra tutti i checkbox e i relativi nomi
+        $('input[type="checkbox"]').show();
+        $('label').show();
+
+        // Aggiorna l'elenco delle lettere visualizzate
+        updateLettereVisualizzate();
+    });
+
+    // Gestisci il clic sul checkbox "Seleziona Tutto"
+    $('#selezionaTutto').on('change', function() {
+        // Seleziona o deseleziona tutti gli altri checkbox in base allo stato di questo checkbox
+        var isChecked = $(this).prop('checked');
+        $('input[type="checkbox"]').not(this).prop('checked', isChecked);
+    });
+
+    // Funzione per aggiornare l'elenco delle lettere visualizzate
+    function updateLettereVisualizzate() {
+        var lettereVisualizzate = [];
+
+        // Scansiona tutti i checkbox visibili e aggiungi le relative lettere all'array
+        $('input[type="checkbox"]:visible').each(function() {
+            var id = $(this).attr('id');
+            if (id && id.length > 0) {
+                var primaLettera = id.charAt(0).toUpperCase();
+                if (lettereVisualizzate.indexOf(primaLettera) === -1) {
+                    lettereVisualizzate.push(primaLettera);
+                }
+            }
+        });
+
+        // Ordina l'array delle lettere
+        lettereVisualizzate.sort();
+
+        // Aggiorna l'elenco delle lettere nell'indice
+        updateIndice(lettereVisualizzate);
+    }
+
+    // Funzione per aggiornare l'elenco delle lettere nell'indice
+    function updateIndice(lettere) {
+        var indice = $('#indice');
+        indice.empty();
+
+        for (var i = 0; i < lettere.length; i++) {
+            var lettera = lettere[i];
+            var link = $('<a href="#" class="letter-link" data-letter="' + lettera + '">' + lettera + '</a>');
+            indice.append(link);
+        }
+    }
+});
+
+</script>
+
+<meta charset="ISO-8859-1">
+<title>Ricerca</title>
+</head>
+<body>
+    
+    <a href="#" id="mostraTutto">Mostra tutto</a>
+    
+    <div id="indice">
+        
+    </div>
+    <h1>Seleziona le tue opzioni:</h1>
+    
+    <input type="checkbox" id="selezionaTutto"> Seleziona Tutto<br>
+    
+    <form id="nomiTecnologie" action="ricercaDipendenti" method="post">
+        <label for="Kore"><input type="checkbox" name="nomiTecnologie[]" id="Kore" value="Kore"> Kore</label><br>
+        <label for="Onion"><input type="checkbox" name="nomiTecnologie[]" id="Onion" value="Onion"> Onion</label><br>
+        <label for="EE"><input type="checkbox" name="nomiTecnologie[]" id="EE" value="EE"> EE</label><br>
+        <label for="Spring"><input type="checkbox" name="nomiTecnologie[]" id="Spring" value="Spring"> Spring</label><br>
+        <label for="Django"><input type="checkbox" name="nomiTecnologie[]" id="Django" value="Django"> Django</label><br>
+        <label for="Flask"><input type="checkbox" name="nomiTecnologie[]" id="Flask" value="Flask"> Flask</label><br>
+        <label for="Pip"><input type="checkbox" name="nomiTecnologie[]" id="Pip" value="pip"> Pip</label><br>
+        <input type="submit" value="Invia">
+    </form>
+</body>
+</html>
